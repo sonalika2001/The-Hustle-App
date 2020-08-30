@@ -65,6 +65,13 @@ flutter:
     - family: DancingScript
       fonts:
         - asset: fonts/DancingScript-SemiBold.ttf
+    - family: Schoolbell
+      fonts:
+        - asset: fonts/Schoolbell-Regular.ttf
+    - family: Kalam
+      fonts:
+        - asset: fonts/Kalam-Bold.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

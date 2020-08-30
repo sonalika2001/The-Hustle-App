@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_app/widgets/tasks_list.dart';
+import 'add_tasks_screen.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
@@ -6,7 +8,12 @@ class TasksScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFFFEEAE6),
-        onPressed: null,
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => AddTaskScreen(),
+          );
+        },
         child: Icon(
           Icons.add,
           color: Color(0xff442C2E),
@@ -34,7 +41,7 @@ class TasksScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  'Welcome to Hustle',
+                  'It\'s Time to Hustle.',
                   style: TextStyle(
                     color: Color(0xff442C2E),
                     fontSize: 31,
@@ -58,6 +65,10 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 7,
+              ),
+              child: TasksList(),
               decoration: BoxDecoration(
                 color: Color(0xffFED2C7),
                 borderRadius: BorderRadius.only(
