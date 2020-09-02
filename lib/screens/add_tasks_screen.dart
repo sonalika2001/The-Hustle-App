@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todoey_app/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  // final List<Task> tasks;
-  // AddTaskScreen(this.tasks);
-  final Function addNewTask;
-  AddTaskScreen(this.addNewTask);
+ 
 static String newTaskTitle;
   @override
   Widget build(BuildContext context) {
@@ -49,8 +48,8 @@ static String newTaskTitle;
               padding: const EdgeInsets.all(15.0),
               child: FlatButton(
                 onPressed: () {
-                  // print(newTaskTitle);
-                  addNewTask(newTaskTitle);
+                  Provider.of<taskData>(context).addTaskText(newTaskTitle);
+                  Navigator.pop(context);
                 },
                 
                 child: Padding(
