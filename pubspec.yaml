@@ -72,7 +72,12 @@ flutter:
     - family: Kalam
       fonts:
         - asset: fonts/Kalam-Bold.ttf
-
+    - family: Questrial
+      fonts:
+        - asset: fonts/Questrial-Regular.ttf
+    - family: Caveat
+      fonts:
+        - asset: fonts/Caveat-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

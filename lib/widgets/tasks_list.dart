@@ -6,7 +6,7 @@ import 'package:todoey_app/models/task_data.dart';
 class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer(
+    return Consumer<TaskData>(
       builder: (context, TaskData, child) {
         return ListView.builder(
           itemBuilder: (context, index) {

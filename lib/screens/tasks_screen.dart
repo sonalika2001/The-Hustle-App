@@ -5,23 +5,34 @@ import 'package:provider/provider.dart';
 import 'package:todoey_app/models/task_data.dart';
 
 class TasksScreen extends StatelessWidget {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFFEEAE6),
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            builder: (context) => AddTaskScreen(
-
-            ),
-          );
-        },
-        child: Icon(
-          Icons.add,
-          color: Color(0xff442C2E),
+      floatingActionButton: Tooltip(
+        message: 'Add Tasks',
+        margin: EdgeInsets.all(5),
+        textStyle: TextStyle(
+            color: Color(0xff442C2E),
+            fontSize: 18,
+            fontFamily: 'Caveat',
+            fontWeight: FontWeight.w500),
+        showDuration: Duration(seconds: 1),
+        decoration: BoxDecoration(
+          color: Color(0xFFFEEAE6),
+        ),
+        child: FloatingActionButton(
+          backgroundColor: Color(0xFFFEEAE6),
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              builder: (context) => AddTaskScreen(),
+              isScrollControlled: false,
+            );
+          },
+          child: Icon(
+            Icons.add,
+            color: Color(0xff442C2E),
+          ),
         ),
       ),
       backgroundColor: Color(0xFFFEEAE6),
@@ -31,16 +42,16 @@ class TasksScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(top: 60, left: 25, right: 30, bottom: 30),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 CircleAvatar(
                   child: Icon(
-                    Icons.list,
+                    Icons.directions_bike,
                     color: Color(0xff442C2E),
-                    size: 30,
+                    size: 50,
                   ),
                   backgroundColor: Color(0xffFED2C7),
-                  radius: 30,
+                  radius: 45,
                 ),
                 SizedBox(
                   height: 20,
@@ -49,7 +60,7 @@ class TasksScreen extends StatelessWidget {
                   'It\'s Time to Hustle.',
                   style: TextStyle(
                     color: Color(0xff442C2E),
-                    fontSize: 31,
+                    fontSize: 31.7,
                     fontWeight: FontWeight.w700,
                     fontFamily: 'RussoOne',
                   ),
@@ -57,28 +68,75 @@ class TasksScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  '${Provider.of<taskData>(context).taskCount} Tasks',
-                  style: TextStyle(
-                    color: Color(0xff442C2E),
-                    fontSize: 20,
-                    fontFamily: 'DancingScript',
-                  ),
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      '${Provider.of<TaskData>(context).taskCount} Tasks',
+                      style: TextStyle(
+                        color: Color(0xff442C2E),
+                        fontSize: 25,
+                        fontFamily: 'DancingScript',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Provider.of<TaskData>(context, listen: false)
+                            .clearList();
+                      },
+                      child: Tooltip(
+                        message: 'Click to clear Task List',
+                        textStyle: TextStyle(
+                            color: Color(0xff442C2E),
+                            fontSize: 18,
+                            fontFamily: 'Caveat',
+                            fontWeight: FontWeight.w500),
+                        showDuration: Duration(seconds: 1),
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFEEAE6),
+                        ),
+                        child: Text(
+                          'Clear List',
+                          style: TextStyle(
+                            color: Color(0xff442C2E),
+                            fontSize: 25,
+                            fontFamily: 'DancingScript',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
           Expanded(
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 7,
-              ),
-              child: TasksList(),
+            child: Tooltip(
+              message:
+                  '        ~ Click on \'+\' to Add Tasks ~\n~ Press and hold on the Tasks to delete ~',
+              preferBelow: true,
+              textStyle: TextStyle(
+                  color: Color(0xff442C2E),
+                  fontSize: 18,
+                  fontFamily: 'Caveat',
+                  fontWeight: FontWeight.w500),
               decoration: BoxDecoration(
-                color: Color(0xffFED2C7),
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20),
-                  topLeft: Radius.circular(20),
+                color: Color(0xFFFEEAE6),
+              ),
+              showDuration: Duration(seconds: 6),
+              padding: EdgeInsets.all(15),
+              height: 30,
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 0,
+                ),
+                child: TasksList(),
+                decoration: BoxDecoration(
+                  color: Color(0xffFED2C7),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(20),
+                  ),
                 ),
               ),
             ),

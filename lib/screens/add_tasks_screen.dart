@@ -3,12 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:todoey_app/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
- 
-static String newTaskTitle;
+  static String newTaskTitle;
   @override
   Widget build(BuildContext context) {
-    
-
     return Container(
       color: Color(0xff75605A),
       child: Container(
@@ -42,21 +39,30 @@ static String newTaskTitle;
                   print(value);
                   newTaskTitle = value;
                 },
+                decoration: InputDecoration(
+                    focusColor: Color(0xff442C2E),
+                    hintStyle: TextStyle(
+                      decorationColor: Color(0xff442C2E),
+                    )),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: FlatButton(
                 onPressed: () {
-                  Provider.of<taskData>(context).addTaskText(newTaskTitle);
+                  Provider.of<TaskData>(context, listen: false)
+                      .addTaskText(newTaskTitle);
                   Navigator.pop(context);
                 },
-                
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Add',
-                    style: TextStyle(color: Color(0xFFFEEAE6), fontSize: 20),
+                    style: TextStyle(
+                      color: Color(0xFFFEEAE6),
+                      fontSize: 20,
+                      fontFamily: 'Questrial',
+                    ),
                   ),
                 ),
                 color: Color(0xff442C2E),
