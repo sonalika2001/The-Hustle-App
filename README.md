@@ -8,17 +8,7 @@ Checking off tasks from your to-do list not only triggers your brain's reward sy
 <br>
 <br>
 
-![The App](https://github.com/sonalika2001/The-Hustle-App/blob/master/images/Screenshot_1604600288.png)
+<pre>
+<img src="./images/Screenshot_1604600288.png" width="250"> <img src="./images/Screenshot_1604600368.png" width="250"> <img src="./images/Screenshot_1604600377.png" width="250"> <img src="./images/Screenshot_1604600385.png" width="250"> <img src="./images/Screenshot_1604600398.png" width="250">
 
-![The App](https://github.com/sonalika2001/The-Hustle-App/blob/master/images/Screenshot_1604600368.png)
-
-![The App](https://github.com/sonalika2001/The-Hustle-App/blob/master/images/Screenshot_1604600377.png)
-
-![The App](https://github.com/sonalika2001/The-Hustle-App/blob/master/images/Screenshot_1604600385.png)
-
-![The App](https://github.com/sonalika2001/The-Hustle-App/blob/master/images/Screenshot_1604600398.png)
-
-
-
-
-
+</pre>
